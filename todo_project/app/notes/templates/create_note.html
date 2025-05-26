@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head><title>Создать заметку</title></head>
+<body>
+    <h1>Создать новую заметку</h1>
+    <nav>
+        <a href="/">Главная</a>
+    </nav>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Сохранить</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Заметки</title>
+    <link rel="stylesheet" href="{% static 'notes/style.css' %}">
+</head>
+<body>
+    <h1>Список заметок</h1>
+    <nav>
+        <a href="/">Главная</a> |
+        <a href="/create/">Создать заметку</a>
+    </nav>
+    <hr>
+    {% if notes %}
+        <ul>
+        {% for note in notes %}
+            <li>
+                <strong>{{ note.title }}</strong> — {{ note.content }}
+                [<a href="/edit/{{ note.id }}/">Редактировать</a>]
+                [<a href="/delete/{{ note.id }}/">Удалить</a>]
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>Заметок нет.</p>
+    {% endif %}
+</body>
+</html>
